@@ -9,7 +9,7 @@ class Athele {
 
   // default constructor
   Athele(){
-    this->run = 5;
+    this->run = 101001;
     this->foods = "Nothing";
     cout << "no parameter constructor : " << endl; 
   }
@@ -21,9 +21,15 @@ class Athele {
   }
 
   Athele(int r,string f){
-       (*this).run = r;
+       this->run = r;
        this->foods = f;
        cout << "2 parameter constructor :" << endl;
+  }
+
+  // copy constructor
+  Athele(Athele &obj){
+       this->run = obj.run;
+       cout << "Copy Constuctor " << endl;
   }
 
   // methoud
@@ -41,8 +47,11 @@ class Athele {
 };
 
 int main(){
-  Athele* A = new Athele();
+  Athele A;
   Athele* B = new Athele(89);
   Athele* C = new Athele(56,"Dal");
+
+  Athele X(A);
+  cout << X.run << endl;
   return 0;
 }
