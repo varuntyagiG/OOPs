@@ -44,6 +44,10 @@ class Athele {
   void setRun(int run){
     this->run = run;
   }
+
+  ~Athele(){
+    cout << "I am inside the destructor" << endl;
+  }
 };
 
 int main(){
@@ -52,6 +56,11 @@ int main(){
   Athele* C = new Athele(56,"Dal");
 
   Athele X(A);
-  cout << X.run << endl;
+
+  delete B;
+  delete C;
+
+  // static object k liye destructor automatic call ho jye gha
+  // dynamic object k liye manually call karna pade gha
   return 0;
 }
